@@ -1,25 +1,31 @@
-#include "holberton.h"
-
+#include "main.h"
 /**
- * _strncat - concatenates two strings
- * @dest: first string
- * @src: second string
- * @n: number of bytes
- * Return: nothing
+ * _strncat - concatenate two strings
+ * using at most n bytes from src
+ * @dest: input value
+ * @src: input value
+ * @n: input value
+ *
+ * Return: dest
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	int l_dest, l_src;
+	int i;
+	int j;
 
-	l_dest = 0;
-	l_src = 0;
-	while (*(dest + l_dest))
-		l_dest++;
-	while (*(src + l_src) && l_src < n)
+	i = 0;
+	while (dest[i] != '\0')
 	{
-		*(dest + (l_dest + l_src)) = (*(src + l_src));
-		l_src++;
-
+		i++;
 	}
+	j = 0;
+	while (j < n && src[j] != '\0')
+	{
+	dest[i] = src[j];
+	i++;
+	j++;
+	}
+	dest[i] = '\0';
 	return (dest);
 }
+
